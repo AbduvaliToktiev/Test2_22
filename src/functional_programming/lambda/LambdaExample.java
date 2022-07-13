@@ -1,10 +1,10 @@
-package lambda;
+package functional_programming.lambda;
 
 import java.util.Comparator;
 
 public class LambdaExample {
     public static void main(String[] args) {
-        // Метод compare принимает два значения, а возвращает один, с помощью лямбда выражения(->) как бы указываем на функцию
+        // Метод compare принимает два значения, а возвращает один, с помощью лямбда выражения(->) передаём данные этого элемента
         // Comparator<Integer> comparator = ( o1, o2) -> Integer.compare(o1, o2);
         // Пишем класс Integer далее через два :: сылаемся на метод класса(Comparator)
         Comparator<Integer> comparator = Integer::compare;
