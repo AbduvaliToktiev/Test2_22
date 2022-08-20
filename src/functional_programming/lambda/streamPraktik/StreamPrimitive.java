@@ -2,6 +2,7 @@ package functional_programming.lambda.streamPraktik;
 
 import java.util.IntSummaryStatistics;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -25,7 +26,7 @@ public class StreamPrimitive {
 
         // Вывод списка, а также после метода peek можно продолжить работу, а метод foreach остонавливал stream
         List<String> collect = Stream.of("88", "11", "22", "33", "44", "55", "66")
-                .peek(System.out::println).toList();
+                .peek(System.out::println).collect(Collectors.toList());
 
         // Вывод чисел от 0 до 9
         IntStream.range(0, 10)
