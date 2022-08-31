@@ -1,5 +1,6 @@
 import java.util.*;
 import java.text.SimpleDateFormat;
+import java.util.stream.Collectors;
 
 // Код для дублирования строк
 public class Test {
@@ -49,6 +50,48 @@ class Exercise2 {
             System.out.println(element);
         }
     }
+}
+
+class Main {
+
+    // unsorted
+    static Map<String, Integer> lhmap = new HashMap<>();
+
+    public static void sort()
+    {
+        HashMap<String, Integer> x
+                = lhmap.entrySet()
+                .stream()
+                .sorted((i1, i2)
+                        -> i1.getKey().compareTo(
+                        i2.getKey()))
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (z1, z2) -> z1, LinkedHashMap::new));
+
+        // Show Sorted HashMap
+        for (Map.Entry<String, Integer> start :
+                x.entrySet()) {
+            System.out.println("Your Key " + start.getKey()
+                    + ", Your Value = "
+                    + start.getValue());
+        }
+    }
+
+    public static void main(String args[])
+    {
+        // insert value
+        lhmap.put("a", 1);
+        lhmap.put("aa", 3);
+        lhmap.put("ab", 5);
+        lhmap.put("ba", 7);
+        lhmap.put("bb", 8);
+        lhmap.put("aac", 23);
+        lhmap.put("bac", 8);
+        sort();
+    }
+
 }
 
 
