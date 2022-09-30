@@ -9,6 +9,9 @@
     <file url="file://$PROJECT_DIR$/src/concurre/semaphore/BuyerThread.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/concurre/task/Task1.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/concurre/task/Task1_2.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/multithreading/counter/Counter.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/multithreading/counter/CounterDemo.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/multithreading/counter/CounterThread.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/multithreading/list/ListThread.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/multithreading/queue/BuyerThread.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/multithreading/vol/Example.java" charset="windows-1251" />
