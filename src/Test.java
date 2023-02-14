@@ -1,3 +1,5 @@
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.*;
 import java.text.SimpleDateFormat;
 import java.util.stream.Collectors;
@@ -57,8 +59,7 @@ class Main {
     // unsorted
     static Map<String, Integer> lhmap = new HashMap<>();
 
-    public static void sort()
-    {
+    public static void sort() {
         HashMap<String, Integer> x
                 = lhmap.entrySet()
                 .stream()
@@ -79,8 +80,7 @@ class Main {
         }
     }
 
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         // insert value
         lhmap.put("a", 1);
         lhmap.put("aa", 3);
@@ -91,7 +91,18 @@ class Main {
         lhmap.put("bac", 8);
         sort();
     }
+}
 
+class DateForma {
+    public static void main(String[] args) throws ParseException {
+        DateFormat outputFormat = new SimpleDateFormat("MM/yyyy", Locale.US);
+        DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX", Locale.US);
+
+        String inputText = "2012-11-17T00:00:00.000-05:00";
+        Date date = inputFormat.parse(inputText);
+        String outputText = outputFormat.format(date);
+        System.out.println(outputText);
+    }
 }
 
 
