@@ -1,0 +1,50 @@
+/* Task 1: Pseudo-classes for links */
+a:link {
+    color: blue;
+    background-color: lightyellow;
+}
+
+a:visited {
+    color: purple;
+    background-color: lightgreen;
+}
+
+a:hover {
+    color: red;
+    background-color: lightblue;
+}
+
+a:active {
+    color: white;
+    background-color: darkorange;
+}
+
+/* Task 2: First letter of headers */
+h1::first-letter,
+h2::first-letter,
+h3::first-letter {
+    font-size: 24px;
+    color: green;
+}
+
+/* Task 3: First line of the first paragraph */
+.italic-first-line::first-line {
+    font-style: italic;
+}
+
+/* Task 4: Pseudo-elements :before and :after for a paragraph */
+.special-paragraph::before {
+    content: ">> ";
+    color: darkred;
+}
+
+.special-paragraph::after {
+    content: " <<";
+    color: darkred;
+}
+
+/* Task 5: Text selection */
+::selection {
+    background-color: black;
+    color: lightgray;
+}

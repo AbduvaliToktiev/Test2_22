@@ -1,0 +1,20 @@
+table {
+    border: 5px solid black;
+    border-collapse: collapse;
+    width: 50%;
+    font-family: 'Times New Roman', serif;
+}
+
+th, td {
+    border: 3px solid black;
+    padding: 5px;
+    text-align: center;
+}
+
+td:nth-child(3) {
+    background-color: white;
+}
+
+td:nth-child(3) {
+    color: blue;
+}

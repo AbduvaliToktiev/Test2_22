@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Load</title>
+    <script>
+        window.onload = function () {
+            alert('Загрузка прошла успешно');
+
+            var isAdmin = confirm('Являетесь ли Вы админом данной системы?');
+
+            if (isAdmin) {
+                document.write('<p>Панель админа. Здравствуйте.</p>');
+            } else {
+                document.write('<p>Что-то пошло не так. Возможно, данный пользователь не является администратором системы.</p>');
+            }
+        };
+    </script>
+</head>
+<body>
+</body>
+</html>

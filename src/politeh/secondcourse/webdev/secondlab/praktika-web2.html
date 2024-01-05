@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Document</title>
+</head>
+<body>
+<div>
+    <p>Прямой наследник (Первый уровень)</p>
+    <span>
+     <span>
+         <p>Третий уровень</p>
+     </span>
+    </span>
+    <p>Прямой наследник (Первый уровень)</p>
+    <span>
+        <p>Второй уровень</p>
+    </span>
+    <p>Прямой наследник (Первый уровень)</p>
+</div>
+</body>
+</html>
+
+<style>
+    * > span > P {
+        width: 200px;
+        margin: 10px;
+        background-color: orchid;
+        color: blue;
+    }
+</style>

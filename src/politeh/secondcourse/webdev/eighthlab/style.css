@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+}
+
+header {
+    background-color: dimgray;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav {
+    background-color: grey;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+section {
+    padding: 20px;
+}
+
+.desktop-link {
+    display: none; /* Скрыть ссылку для десктопа по умолчанию */
+}
+
+@media (max-width: 480px) {
+    /* Стили для мобильных устройств */
+    .desktop-link {
+        display: inline-block; /* Показать ссылку для мобильных устройств */
+        margin: 10px 0;
+        color: blue;
+    }
+
+    body {
+        background-color: white; /* Изменить цвет фона для мобильных устройств */
+    }
+}
