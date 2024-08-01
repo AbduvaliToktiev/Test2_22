@@ -79,5 +79,14 @@ class DateForma {
     }
 }
 
+class StringExample {
+    public static void main(String[] args) {
+        String string = "asdsafdasf.pdf";
+        int dotIndex = string.lastIndexOf(".");
+        String stringBefore = string.substring(dotIndex + 1);
+        System.out.println(stringBefore);
+    }
+}
+
 
 
