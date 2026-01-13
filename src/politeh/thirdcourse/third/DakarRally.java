@@ -21,10 +21,10 @@ class Kamaz {
     public double getDesertSpeed() { return desertSpeed; }
     
     public void displayInfo() {
-        System.out.println("Р“СЂСѓР·РѕРІРёРє: " + name);
-        System.out.printf("  Р Р°РІРЅРёРЅР°: %.1f РєРј/С‡\n", plainSpeed);
-        System.out.printf("  Р“РѕСЂС‹:    %.1f РєРј/С‡\n", mountainSpeed);
-        System.out.printf("  РџСѓСЃС‚С‹РЅСЏ: %.1f РєРј/С‡\n", desertSpeed);
+        System.out.println("Грузовик: " + name);
+        System.out.printf("  Равнина: %.1f км/ч\n", plainSpeed);
+        System.out.printf("  Горы:    %.1f км/ч\n", mountainSpeed);
+        System.out.printf("  Пустыня: %.1f км/ч\n", desertSpeed);
     }
     
 
@@ -52,10 +52,10 @@ class Tatra {
     public double getDesertSpeed() { return desertSpeed; }
     
     public void displayInfo() {
-        System.out.println("Р“СЂСѓР·РѕРІРёРє: " + name);
-        System.out.printf("  Р Р°РІРЅРёРЅР°: %.1f РєРј/С‡\n", plainSpeed);
-        System.out.printf("  Р“РѕСЂС‹:    %.1f РєРј/С‡\n", mountainSpeed);
-        System.out.printf("  РџСѓСЃС‚С‹РЅСЏ: %.1f РєРј/С‡\n", desertSpeed);
+        System.out.println("Грузовик: " + name);
+        System.out.printf("  Равнина: %.1f км/ч\n", plainSpeed);
+        System.out.printf("  Горы:    %.1f км/ч\n", mountainSpeed);
+        System.out.printf("  Пустыня: %.1f км/ч\n", desertSpeed);
     }
     
     public double calculateAverageSpeed() {
@@ -81,20 +81,20 @@ class RallyUtils {
         double kamazSpeed, tatraSpeed;
         
         switch (terrain.toLowerCase()) {
-            case "СЂР°РІРЅРёРЅР°":
+            case "равнина":
                 kamazSpeed = kamaz.getPlainSpeed();
                 tatraSpeed = tatra.getPlainSpeed();
                 break;
-            case "РіРѕСЂС‹":
+            case "горы":
                 kamazSpeed = kamaz.getMountainSpeed();
                 tatraSpeed = tatra.getMountainSpeed();
                 break;
-            case "РїСѓСЃС‚С‹РЅСЏ":
+            case "пустыня":
                 kamazSpeed = kamaz.getDesertSpeed();
                 tatraSpeed = tatra.getDesertSpeed();
                 break;
             default:
-                return frCreater(kamaz, tatra); // РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ СЃСЂРµРґРЅСЏСЏ
+                return frCreater(kamaz, tatra); // по умолчанию средняя
         }
         
         if (Math.abs(kamazSpeed - tatraSpeed) < 0.01) {
@@ -107,30 +107,30 @@ class RallyUtils {
     }
     
     public static void createResultsTable(Kamaz kamaz, Tatra tatra) {
-        System.out.println("\nв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ");
-        System.out.println("        Р Р•Р—РЈР›Р¬РўРђРўР« Р РђР›Р›Р-РњРђР РђР¤РћРќРђ В«Р”РђРљРђР В»");
-        System.out.println("в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ");
+        System.out.println("\n???????????????????????????????????????????????????????");
+        System.out.println("        РЕЗУЛЬТАТЫ РАЛЛИ-МАРАФОНА «ДАКАР»");
+        System.out.println("???????????????????????????????????????????????????????");
         
         System.out.printf("%-15s %-15s %-15s %-15s\n", 
-            "РЈР§РђРЎРўРћРљ", "РљРђРњРђР—", "TATRA", "Р›РР”Р•Р ");
-        System.out.println("в”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђв”Ђ");
+            "УЧАСТОК", "КАМАЗ", "TATRA", "ЛИДЕР");
+        System.out.println("???????????????????????????????????????????????????????");
         
-        String[] terrains = {"Р РђР’РќРРќРђ", "Р“РћР Р«", "РџРЈРЎРўР«РќРЇ", "РЎР Р•Р”РќРЇРЇ"};
+        String[] terrains = {"РАВНИНА", "ГОРЫ", "ПУСТЫНЯ", "СРЕДНЯЯ"};
         
         for (int i = 0; i < terrains.length; i++) {
             String terrain = terrains[i];
             String kamazValue, tatraValue, leader;
             
             if (i < 3) {
-                kamazValue = String.format("%.1f РєРј/С‡",
+                kamazValue = String.format("%.1f км/ч",
                     getSpeedByTerrain(kamaz, terrain));
-                tatraValue = String.format("%.1f РєРј/С‡", 
+                tatraValue = String.format("%.1f км/ч", 
                     getSpeedByTerrain(tatra, terrain));
                 int result = compareByTerrain(kamaz, tatra, terrain);
                 leader = getLeaderName(result, kamaz.getName(), tatra.getName());
             } else {
-                kamazValue = String.format("%.1f РєРј/С‡", kamaz.calculateAverageSpeed());
-                tatraValue = String.format("%.1f РєРј/С‡", tatra.calculateAverageSpeed());
+                kamazValue = String.format("%.1f км/ч", kamaz.calculateAverageSpeed());
+                tatraValue = String.format("%.1f км/ч", tatra.calculateAverageSpeed());
                 int result = frCreater(kamaz, tatra);
                 leader = getLeaderName(result, kamaz.getName(), tatra.getName());
             }
@@ -139,33 +139,33 @@ class RallyUtils {
                 terrain, kamazValue, tatraValue, leader);
         }
         
-        System.out.println("в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђ");
+        System.out.println("???????????????????????????????????????????????????????");
         
         int finalResult = frCreater(kamaz, tatra);
         if (finalResult == 1) {
-            System.out.println("\nрџЋ‰ РџРћР‘Р•Р”РРўР•Р›Р¬: " + kamaz.getName() + "!");
+            System.out.println("\n? ПОБЕДИТЕЛЬ: " + kamaz.getName() + "!");
         } else if (finalResult == -1) {
-            System.out.println("\nрџЋ‰ РџРћР‘Р•Р”РРўР•Р›Р¬: " + tatra.getName() + "!");
+            System.out.println("\n? ПОБЕДИТЕЛЬ: " + tatra.getName() + "!");
         } else {
-            System.out.println("\nрџ¤ќ РќРР§Р¬РЇ! РћР±Р° РіСЂСѓР·РѕРІРёРєР° РїРѕРєР°Р·Р°Р»Рё РѕРґРёРЅР°РєРѕРІС‹Р№ СЂРµР·СѓР»СЊС‚Р°С‚!");
+            System.out.println("\n? НИЧЬЯ! Оба грузовика показали одинаковый результат!");
         }
     }
     
-    // Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ РјРµС‚РѕРґС‹
+    // Вспомогательные методы
     private static double getSpeedByTerrain(Kamaz kamaz, String terrain) {
         return switch (terrain) {
-            case "Р РђР’РќРРќРђ" -> kamaz.getPlainSpeed();
-            case "Р“РћР Р«" -> kamaz.getMountainSpeed();
-            case "РџРЈРЎРўР«РќРЇ" -> kamaz.getDesertSpeed();
+            case "РАВНИНА" -> kamaz.getPlainSpeed();
+            case "ГОРЫ" -> kamaz.getMountainSpeed();
+            case "ПУСТЫНЯ" -> kamaz.getDesertSpeed();
             default -> kamaz.calculateAverageSpeed();
         };
     }
     
     private static double getSpeedByTerrain(Tatra tatra, String terrain) {
         return switch (terrain) {
-            case "Р РђР’РќРРќРђ" -> tatra.getPlainSpeed();
-            case "Р“РћР Р«" -> tatra.getMountainSpeed();
-            case "РџРЈРЎРўР«РќРЇ" -> tatra.getDesertSpeed();
+            case "РАВНИНА" -> tatra.getPlainSpeed();
+            case "ГОРЫ" -> tatra.getMountainSpeed();
+            case "ПУСТЫНЯ" -> tatra.getDesertSpeed();
             default -> tatra.calculateAverageSpeed();
         };
     }
@@ -173,27 +173,27 @@ class RallyUtils {
     private static String getLeaderName(int result, String kamazName, String tatraName) {
         if (result == 1) return kamazName;
         if (result == -1) return tatraName;
-        return "РќРР§Р¬РЇ";
+        return "НИЧЬЯ";
     }
 }
 
 class TatraFriend {
     public static void analyzeKamazPerformance(Kamaz kamaz) {
-        System.out.println("\n[РђРЅР°Р»РёР· РѕС‚ РґСЂСѓР¶РµСЃС‚РІРµРЅРЅРѕРіРѕ РєР»Р°СЃСЃР° TatraFriend]:");
-        System.out.println("РђРЅР°Р»РёР·РёСЂСѓРµРј РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚СЊ " + kamaz.getName());
-        System.out.printf("РћР±С‰Р°СЏ РѕС†РµРЅРєР°: %.1f/100\n", 
+        System.out.println("\n[Анализ от дружественного класса TatraFriend]:");
+        System.out.println("Анализируем производительность " + kamaz.getName());
+        System.out.printf("Общая оценка: %.1f/100\n", 
             (kamaz.calculateAverageSpeed() * 100 / 120));
         
-        // "Р”РѕСЃС‚СѓРї" Рє "РїСЂРёРІР°С‚РЅС‹Рј" РґР°РЅРЅС‹Рј С‡РµСЂРµР· РіРµС‚С‚РµСЂС‹
+        // "Доступ" к "приватным" данным через геттеры
         double plain = kamaz.getPlainSpeed();
         double mountain = kamaz.getMountainSpeed();
         double desert = kamaz.getDesertSpeed();
         
-        System.out.println("Р РµРєРѕРјРµРЅРґР°С†РёРё РґР»СЏ Tatra:");
-        System.out.println("1. РќР° СЂР°РІРЅРёРЅРµ Kamaz СЃРёР»СЊРЅРµРµ РЅР° " + 
-            String.format("%.1f", plain - 80) + " РєРј/С‡");
-        System.out.println("2. Р’ РіРѕСЂР°С… РЅСѓР¶РЅРѕ СѓР»СѓС‡С€РёС‚СЊ РїСЂРѕС…РѕРґРёРјРѕСЃС‚СЊ");
-        System.out.println("3. Р’ РїСѓСЃС‚С‹РЅРµ РєРѕРЅРєСѓСЂРµРЅС†РёСЏ СЂР°РІРЅР°СЏ");
+        System.out.println("Рекомендации для Tatra:");
+        System.out.println("1. На равнине Kamaz сильнее на " + 
+            String.format("%.1f", plain - 80) + " км/ч");
+        System.out.println("2. В горах нужно улучшить проходимость");
+        System.out.println("3. В пустыне конкуренция равная");
     }
 }
 
@@ -201,67 +201,67 @@ public class DakarRally {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        System.out.println("=== Р РђР›Р›Р-РњРђР РђР¤РћРќ В«Р”РђРљРђР В» ===");
-        System.out.println("Р Р°СЃС‡РµС‚ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ СЃРѕСЂРµРІРЅРѕРІР°РЅРёСЏ РіСЂСѓР·РѕРІРёРєРѕРІ\n");
+        System.out.println("=== РАЛЛИ-МАРАФОН «ДАКАР» ===");
+        System.out.println("Расчет результатов соревнования грузовиков\n");
         
-        Kamaz kamaz = new Kamaz("РљРђРњРђР—-РјР°СЃС‚РµСЂ", 110.0, 75.0, 95.0);
+        Kamaz kamaz = new Kamaz("КАМАЗ-мастер", 110.0, 75.0, 95.0);
         Tatra tatra = new Tatra("Tatra Phoenix", 105.0, 85.0, 90.0);
         
-        System.out.println("РҐРѕС‚РёС‚Рµ РІРІРµСЃС‚Рё РґР°РЅРЅС‹Рµ РІСЂСѓС‡РЅСѓСЋ? (РґР°/РЅРµС‚): ");
+        System.out.println("Хотите ввести данные вручную? (да/нет): ");
         String choice = scanner.nextLine();
         
-        if (choice.equalsIgnoreCase("РґР°")) {
-            System.out.println("\n=== Р’Р’РћР” Р”РђРќРќР«РҐ Р”Р›РЇ РљРђРњРђР— ===");
-            System.out.print("РќР°Р·РІР°РЅРёРµ: ");
+        if (choice.equalsIgnoreCase("да")) {
+            System.out.println("\n=== ВВОД ДАННЫХ ДЛЯ КАМАЗ ===");
+            System.out.print("Название: ");
             String kamazName = scanner.nextLine();
-            System.out.print("РЎРєРѕСЂРѕСЃС‚СЊ РїРѕ СЂР°РІРЅРёРЅРµ (РєРј/С‡): ");
+            System.out.print("Скорость по равнине (км/ч): ");
             double kamazPlain = scanner.nextDouble();
-            System.out.print("РЎРєРѕСЂРѕСЃС‚СЊ РІ РіРѕСЂР°С… (РєРј/С‡): ");
+            System.out.print("Скорость в горах (км/ч): ");
             double kamazMountain = scanner.nextDouble();
-            System.out.print("РЎРєРѕСЂРѕСЃС‚СЊ РІ РїСѓСЃС‚С‹РЅРµ (РєРј/С‡): ");
+            System.out.print("Скорость в пустыне (км/ч): ");
             double kamazDesert = scanner.nextDouble();
-            scanner.nextLine(); // РѕС‡РёСЃС‚РєР° Р±СѓС„РµСЂР°
+            scanner.nextLine(); // очистка буфера
             
             kamaz = new Kamaz(kamazName, kamazPlain, kamazMountain, kamazDesert);
             
-            System.out.println("\n=== Р’Р’РћР” Р”РђРќРќР«РҐ Р”Р›РЇ TATRA ===");
-            System.out.print("РќР°Р·РІР°РЅРёРµ: ");
+            System.out.println("\n=== ВВОД ДАННЫХ ДЛЯ TATRA ===");
+            System.out.print("Название: ");
             String tatraName = scanner.nextLine();
-            System.out.print("РЎРєРѕСЂРѕСЃС‚СЊ РїРѕ СЂР°РІРЅРёРЅРµ (РєРј/С‡): ");
+            System.out.print("Скорость по равнине (км/ч): ");
             double tatraPlain = scanner.nextDouble();
-            System.out.print("РЎРєРѕСЂРѕСЃС‚СЊ РІ РіРѕСЂР°С… (РєРј/С‡): ");
+            System.out.print("Скорость в горах (км/ч): ");
             double tatraMountain = scanner.nextDouble();
-            System.out.print("РЎРєРѕСЂРѕСЃС‚СЊ РІ РїСѓСЃС‚С‹РЅРµ (РєРј/С‡): ");
+            System.out.print("Скорость в пустыне (км/ч): ");
             double tatraDesert = scanner.nextDouble();
             
             tatra = new Tatra(tatraName, tatraPlain, tatraMountain, tatraDesert);
         }
         
-        System.out.println("\n=== РҐРђР РђРљРўР•Р РРЎРўРРљР РЈР§РђРЎРўРќРРљРћР’ ===");
+        System.out.println("\n=== ХАРАКТЕРИСТИКИ УЧАСТНИКОВ ===");
         kamaz.displayInfo();
-        System.out.printf("РЎСЂРµРґРЅСЏСЏ СЃРєРѕСЂРѕСЃС‚СЊ: %.1f РєРј/С‡\n\n", kamaz.calculateAverageSpeed());
+        System.out.printf("Средняя скорость: %.1f км/ч\n\n", kamaz.calculateAverageSpeed());
         
         tatra.displayInfo();
-        System.out.printf("РЎСЂРµРґРЅСЏСЏ СЃРєРѕСЂРѕСЃС‚СЊ: %.1f РєРј/С‡\n", tatra.calculateAverageSpeed());
+        System.out.printf("Средняя скорость: %.1f км/ч\n", tatra.calculateAverageSpeed());
         
-        System.out.println("\n=== РЎР РђР’РќР•РќРР• РЎРљРћР РћРЎРўР•Р™ (С„СѓРЅРєС†РёСЏ FrCreater) ===");
+        System.out.println("\n=== СРАВНЕНИЕ СКОРОСТЕЙ (функция FrCreater) ===");
         int comparisonResult = RallyUtils.frCreater(kamaz, tatra);
         
-        System.out.print("Р РµР·СѓР»СЊС‚Р°С‚ СЃСЂР°РІРЅРµРЅРёСЏ: ");
+        System.out.print("Результат сравнения: ");
         switch (comparisonResult) {
             case 1:
-                System.out.println("РљРђРњРђР— Р±С‹СЃС‚СЂРµРµ Tatra (+1)");
+                System.out.println("КАМАЗ быстрее Tatra (+1)");
                 break;
             case 0:
-                System.out.println("РЎРєРѕСЂРѕСЃС‚Рё РѕРґРёРЅР°РєРѕРІС‹ (0)");
+                System.out.println("Скорости одинаковы (0)");
                 break;
             case -1:
-                System.out.println("РљРђРњРђР— РјРµРґР»РµРЅРЅРµРµ Tatra (-1)");
+                System.out.println("КАМАЗ медленнее Tatra (-1)");
                 break;
         }
         
-        System.out.println("\n=== РЎР РђР’РќР•РќРР• РџРћ РЈР§РђРЎРўРљРђРњ ===");
-        String[] terrains = {"СЂР°РІРЅРёРЅР°", "РіРѕСЂС‹", "РїСѓСЃС‚С‹РЅСЏ"};
+        System.out.println("\n=== СРАВНЕНИЕ ПО УЧАСТКАМ ===");
+        String[] terrains = {"равнина", "горы", "пустыня"};
         
         for (String terrain : terrains) {
             int terrainResult = RallyUtils.compareByTerrain(kamaz, tatra, terrain);
@@ -269,13 +269,13 @@ public class DakarRally {
             
             switch (terrainResult) {
                 case 1:
-                    System.out.println("РљРђРњРђР— Р»РёРґРёСЂСѓРµС‚");
+                    System.out.println("КАМАЗ лидирует");
                     break;
                 case 0:
-                    System.out.println("Р Р°РІРЅС‹Рµ СЃРєРѕСЂРѕСЃС‚Рё");
+                    System.out.println("Равные скорости");
                     break;
                 case -1:
-                    System.out.println("Tatra Р»РёРґРёСЂСѓРµС‚");
+                    System.out.println("Tatra лидирует");
                     break;
             }
         }
@@ -284,19 +284,19 @@ public class DakarRally {
         
         TatraFriend.analyzeKamazPerformance(kamaz);
         
-        System.out.println("\n=== Р”РћРџРћР›РќРРўР•Р›Р¬РќР«Р™ РђРќРђР›РР— ===");
-        System.out.println("РџСЂРµРёРјСѓС‰РµСЃС‚РІР° РљРђРњРђР—:");
-        System.out.println("- Р›СѓС‡С€Р°СЏ СЃРєРѕСЂРѕСЃС‚СЊ РЅР° СЂР°РІРЅРёРЅРµ: " + 
-            String.format("%.1f", kamaz.getPlainSpeed() - tatra.getPlainSpeed()) + " РєРј/С‡");
-        System.out.println("- РЎРёР»СЊРЅРµРµ РІ РїСѓСЃС‚С‹РЅРµ: " + 
-            String.format("%.1f", kamaz.getDesertSpeed() - tatra.getDesertSpeed()) + " РєРј/С‡");
+        System.out.println("\n=== ДОПОЛНИТЕЛЬНЫЙ АНАЛИЗ ===");
+        System.out.println("Преимущества КАМАЗ:");
+        System.out.println("- Лучшая скорость на равнине: " + 
+            String.format("%.1f", kamaz.getPlainSpeed() - tatra.getPlainSpeed()) + " км/ч");
+        System.out.println("- Сильнее в пустыне: " + 
+            String.format("%.1f", kamaz.getDesertSpeed() - tatra.getDesertSpeed()) + " км/ч");
         
-        System.out.println("\nРџСЂРµРёРјСѓС‰РµСЃС‚РІР° Tatra:");
-        System.out.println("- Р›СѓС‡С€Р°СЏ РїСЂРѕС…РѕРґРёРјРѕСЃС‚СЊ РІ РіРѕСЂР°С…: " + 
-            String.format("%.1f", tatra.getMountainSpeed() - kamaz.getMountainSpeed()) + " РєРј/С‡");
+        System.out.println("\nПреимущества Tatra:");
+        System.out.println("- Лучшая проходимость в горах: " + 
+            String.format("%.1f", tatra.getMountainSpeed() - kamaz.getMountainSpeed()) + " км/ч");
 
         scanner.close();
 
-        System.out.println("\n=== Р“РћРќРљРђ Р—РђР’Р•Р РЁР•РќРђ! ===");
+        System.out.println("\n=== ГОНКА ЗАВЕРШЕНА! ===");
     }
 }
