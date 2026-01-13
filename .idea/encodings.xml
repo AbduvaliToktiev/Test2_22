@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/message.txt" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/CityMerger.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/Map/MainLinkedHashMap.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/PdfToWordBasic.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/RealTimeTranslatorApp.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/Test.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/TransliterationExample.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/concurre/barrier/BarrierDemo.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/concurre/barrier/RocketDetailRunnable.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/concurre/latch/Rocket.java" charset="windows-1251" />
@@ -23,5 +29,9 @@
     <file url="file://$PROJECT_DIR$/src/politeh/firstcourse/Task114.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/politeh/firstcourse/Task40.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/politeh/firstcourse/Task70.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/politeh/thirdcourse/first/AirportDisplay.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/politeh/thirdcourse/first/RailwayYard.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/politeh/thirdcourse/first/StudentGroupDemo.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/test/MainTest.java" charset="windows-1251" />
   </component>
 </project>
