@@ -23,21 +23,21 @@ class Rectangle {
 
     public double rect_area(double length, double width) {
         if (length <= 0 || width <= 0) {
-            throw new IllegalArgumentException("Ð”Ð»Ð¸Ð½Ñ‹ ÑÑ‚Ð¾Ñ€Ð¾Ð½ Ð´Ð¾Ð»Ð¶Ð½Ñ‹ Ð±Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ð»Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¼Ð¸!");
+            throw new IllegalArgumentException("Äëèíû ñòîðîí äîëæíû áûòü ïîëîæèòåëüíûìè!");
         }
         return length * width;
     }
     
     public double rect_area(double side) {
         if (side <= 0) {
-            throw new IllegalArgumentException("Ð”Ð»Ð¸Ð½Ð° ÑÑ‚Ð¾Ñ€Ð¾Ð½Ñ‹ Ð´Ð¾Ð»Ð¶Ð½Ð° Ð±Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ð»Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ð¹!");
+            throw new IllegalArgumentException("Äëèíà ñòîðîíû äîëæíà áûòü ïîëîæèòåëüíîé!");
         }
         return side * side;
     }
     
     public double rect_area() {
         if (length <= 0 || width <= 0) {
-            throw new IllegalStateException("Ð¡Ð½Ð°Ñ‡Ð°Ð»Ð° Ð·Ð°Ð´Ð°Ð¹Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€Ñ‹ Ð¿Ñ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ°!");
+            throw new IllegalStateException("Ñíà÷àëà çàäàéòå ðàçìåðû ïðÿìîóãîëüíèêà!");
         }
         return length * width;
     }
@@ -69,16 +69,16 @@ class Rectangle {
     
     public void displayInfo() {
         if (isSquare()) {
-            System.out.printf("ÐšÐ²Ð°Ð´Ñ€Ð°Ñ‚ ÑÐ¾ ÑÑ‚Ð¾Ñ€Ð¾Ð½Ð¾Ð¹: %.2f\n", length);
+            System.out.printf("Êâàäðàò ñî ñòîðîíîé: %.2f\n", length);
         } else {
-            System.out.printf("ÐŸÑ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸Ðº: %.2f x %.2f\n", length, width);
+            System.out.printf("Ïðÿìîóãîëüíèê: %.2f x %.2f\n", length, width);
         }
-        System.out.printf("ÐŸÐ»Ð¾Ñ‰Ð°Ð´ÑŒ: %.2f\n", rect_area());
+        System.out.printf("Ïëîùàäü: %.2f\n", rect_area());
     }
 }
 
 class ExtendedRectangle extends Rectangle {
-    // ÐŸÐµÑ€ÐµÐ³Ñ€ÑƒÐ¶ÐµÐ½Ð½Ñ‹Ð¹ Ð¼ÐµÑ‚Ð¾Ð´ Ñ Ñ‚Ñ€ÐµÐ¼Ñ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð°Ð¼Ð¸ (Ð´Ð»Ñ Ð¿Ð°Ñ€Ð°Ð»Ð»ÐµÐ»ÐµÐ¿Ð¸Ð¿ÐµÐ´Ð° - Ð¿Ð»Ð¾Ñ‰Ð°Ð´ÑŒ Ð¿Ð¾Ð²ÐµÑ€Ñ…Ð½Ð¾ÑÑ‚Ð¸)
+    // Ïåðåãðóæåííûé ìåòîä ñ òðåìÿ ïàðàìåòðàìè (äëÿ ïàðàëëåëåïèïåäà - ïëîùàäü ïîâåðõíîñòè)
     public double rect_area(double length, double width, double height) {
         return 2 * (rect_area(length, width) + 
                    rect_area(length, height) + 
@@ -102,14 +102,14 @@ public class RectangleDemo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        System.out.println("=== Ð”Ð•ÐœÐžÐÐ¡Ð¢Ð ÐÐ¦Ð˜Ð¯ ÐŸÐ•Ð Ð•Ð“Ð Ð£Ð—ÐšÐ˜ ÐœÐ•Ð¢ÐžÐ”ÐžÐ’ ===");
-        System.out.println("ÐšÐ»Ð°ÑÑ Rectangle Ñ Ð¿ÐµÑ€ÐµÐ³Ñ€ÑƒÐ¶ÐµÐ½Ð½Ñ‹Ð¼ Ð¼ÐµÑ‚Ð¾Ð´Ð¾Ð¼ rect_area()\n");
+        System.out.println("=== ÄÅÌÎÍÑÒÐÀÖÈß ÏÅÐÅÃÐÓÇÊÈ ÌÅÒÎÄÎÂ ===");
+        System.out.println("Êëàññ Rectangle ñ ïåðåãðóæåííûì ìåòîäîì rect_area()\n");
         
         Rectangle rect1 = new Rectangle(5, 3);
         Rectangle square1 = new Rectangle(4);
         Rectangle rect2 = new Rectangle();
         
-        System.out.println("1. Ð˜ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ Ñ€Ð°Ð·Ð½Ñ‹Ñ… Ð²ÐµÑ€ÑÐ¸Ð¹ rect_area():");
+        System.out.println("1. Èñïîëüçîâàíèå ðàçíûõ âåðñèé rect_area():");
         
         System.out.println("   rect_area(5, 3) = " + rect1.rect_area(5, 3));
         
@@ -118,91 +118,91 @@ public class RectangleDemo {
         System.out.println("   rect1.rect_area() = " + rect1.rect_area());
         System.out.println("   square1.rect_area() = " + square1.rect_area());
         
-        System.out.println("\n2. Ð¡Ñ‚Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ¸Ðµ Ð¼ÐµÑ‚Ð¾Ð´Ñ‹:");
+        System.out.println("\n2. Ñòàòè÷åñêèå ìåòîäû:");
         System.out.println("   Rectangle.rect_area_static(6, 2) = " + 
                          Rectangle.rect_area_static(6, 2));
         System.out.println("   Rectangle.rect_area_static(5) = " + 
                          Rectangle.rect_area_static(5));
         
-        System.out.println("\n3. ÐŸÐ¾Ð»Ð¸Ð¼Ð¾Ñ€Ñ„Ð¸Ð·Ð¼:");
+        System.out.println("\n3. Ïîëèìîðôèçì:");
         Rectangle[] shapes = new Rectangle[3];
         shapes[0] = new Rectangle(3, 4);
-        shapes[1] = new Rectangle(5); // ÐºÐ²Ð°Ð´Ñ€Ð°Ñ‚
+        shapes[1] = new Rectangle(5); // êâàäðàò
         shapes[2] = new Rectangle(2.5, 6);
         
         for (int i = 0; i < shapes.length; i++) {
-            System.out.printf("   Ð¤Ð¸Ð³ÑƒÑ€Ð° %d: ", i+1);
+            System.out.printf("   Ôèãóðà %d: ", i+1);
             shapes[i].displayInfo();
         }
         
-        System.out.println("\n4. Ð Ð°ÑÑˆÐ¸Ñ€ÐµÐ½Ð½Ñ‹Ð¹ ÐºÐ»Ð°ÑÑ ExtendedRectangle:");
+        System.out.println("\n4. Ðàñøèðåííûé êëàññ ExtendedRectangle:");
         ExtendedRectangle extRect = new ExtendedRectangle();
         extRect.setDimensions(3, 4);
         
-        System.out.println("   ÐŸÐ»Ð¾Ñ‰Ð°Ð´ÑŒ: " + extRect.rect_area());
-        System.out.println("   ÐŸÐµÑ€Ð¸Ð¼ÐµÑ‚Ñ€: " + extRect.rect_perimeter());
-        System.out.println("   ÐŸÐ»Ð¾Ñ‰Ð°Ð´ÑŒ Ð¿Ð¾Ð²ÐµÑ€Ñ…Ð½Ð¾ÑÑ‚Ð¸ Ð¿Ð°Ñ€Ð°Ð»Ð»ÐµÐ»ÐµÐ¿Ð¸Ð¿ÐµÐ´Ð° 3x4x5: " + 
+        System.out.println("   Ïëîùàäü: " + extRect.rect_area());
+        System.out.println("   Ïåðèìåòð: " + extRect.rect_perimeter());
+        System.out.println("   Ïëîùàäü ïîâåðõíîñòè ïàðàëëåëåïèïåäà 3x4x5: " + 
                          extRect.rect_area(3, 4, 5));
         
-        System.out.println("\n=== Ð˜ÐÐ¢Ð•Ð ÐÐšÐ¢Ð˜Ð’ÐÐ«Ð™ Ð Ð•Ð–Ð˜Ðœ ===");
-        System.out.println("Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ‚Ð¸Ð¿ Ñ„Ð¸Ð³ÑƒÑ€Ñ‹:");
-        System.out.println("1. ÐŸÑ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸Ðº");
-        System.out.println("2. ÐšÐ²Ð°Ð´Ñ€Ð°Ñ‚");
-        System.out.print("Ð’Ð°Ñˆ Ð²Ñ‹Ð±Ð¾Ñ€: ");
+        System.out.println("\n=== ÈÍÒÅÐÀÊÒÈÂÍÛÉ ÐÅÆÈÌ ===");
+        System.out.println("Âûáåðèòå òèï ôèãóðû:");
+        System.out.println("1. Ïðÿìîóãîëüíèê");
+        System.out.println("2. Êâàäðàò");
+        System.out.print("Âàø âûáîð: ");
         
         int choice = scanner.nextInt();
         
         if (choice == 1) {
-            System.out.print("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð»Ð¸Ð½Ñƒ: ");
+            System.out.print("Ââåäèòå äëèíó: ");
             double length = scanner.nextDouble();
-            System.out.print("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑˆÐ¸Ñ€Ð¸Ð½Ñƒ: ");
+            System.out.print("Ââåäèòå øèðèíó: ");
             double width = scanner.nextDouble();
             
             if (length <= 0 || width <= 0) {
-                System.out.println("ÐžÑˆÐ¸Ð±ÐºÐ°: Ñ€Ð°Ð·Ð¼ÐµÑ€Ñ‹ Ð´Ð¾Ð»Ð¶Ð½Ñ‹ Ð±Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ð»Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¼Ð¸!");
+                System.out.println("Îøèáêà: ðàçìåðû äîëæíû áûòü ïîëîæèòåëüíûìè!");
             } else {
                 Rectangle userRect = new Rectangle(length, width);
-                System.out.printf("\nÐŸÑ€ÑÐ¼Ð¾ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸Ðº %.2f x %.2f:\n", length, width);
-                System.out.printf("ÐŸÐ»Ð¾Ñ‰Ð°Ð´ÑŒ: %.2f\n", userRect.rect_area());
+                System.out.printf("\nÏðÿìîóãîëüíèê %.2f x %.2f:\n", length, width);
+                System.out.printf("Ïëîùàäü: %.2f\n", userRect.rect_area());
                 
-                System.out.printf("ÐŸÐ»Ð¾Ñ‰Ð°Ð´ÑŒ (Ñ‡ÐµÑ€ÐµÐ· Ð¼ÐµÑ‚Ð¾Ð´ Ñ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð°Ð¼Ð¸): %.2f\n",
+                System.out.printf("Ïëîùàäü (÷åðåç ìåòîä ñ ïàðàìåòðàìè): %.2f\n",
                                 userRect.rect_area(length, width));
             }
             
         } else if (choice == 2) {
-            System.out.print("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð»Ð¸Ð½Ñƒ ÑÑ‚Ð¾Ñ€Ð¾Ð½Ñ‹: ");
+            System.out.print("Ââåäèòå äëèíó ñòîðîíû: ");
             double side = scanner.nextDouble();
             
             if (side <= 0) {
-                System.out.println("ÐžÑˆÐ¸Ð±ÐºÐ°: Ð´Ð»Ð¸Ð½Ð° ÑÑ‚Ð¾Ñ€Ð¾Ð½Ñ‹ Ð´Ð¾Ð»Ð¶Ð½Ð° Ð±Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ð»Ð¾Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ð¹!");
+                System.out.println("Îøèáêà: äëèíà ñòîðîíû äîëæíà áûòü ïîëîæèòåëüíîé!");
             } else {
                 Rectangle userSquare = new Rectangle(side);
-                System.out.printf("\nÐšÐ²Ð°Ð´Ñ€Ð°Ñ‚ ÑÐ¾ ÑÑ‚Ð¾Ñ€Ð¾Ð½Ð¾Ð¹ %.2f:\n", side);
-                System.out.printf("ÐŸÐ»Ð¾Ñ‰Ð°Ð´ÑŒ: %.2f\n", userSquare.rect_area());
+                System.out.printf("\nÊâàäðàò ñî ñòîðîíîé %.2f:\n", side);
+                System.out.printf("Ïëîùàäü: %.2f\n", userSquare.rect_area());
                 
-                System.out.printf("ÐŸÐ»Ð¾Ñ‰Ð°Ð´ÑŒ (Ñ‡ÐµÑ€ÐµÐ· Ð¼ÐµÑ‚Ð¾Ð´ Ñ Ð¾Ð´Ð½Ð¸Ð¼ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð¾Ð¼): %.2f\n",
+                System.out.printf("Ïëîùàäü (÷åðåç ìåòîä ñ îäíèì ïàðàìåòðîì): %.2f\n",
                                 userSquare.rect_area(side));
-                System.out.printf("ÐŸÐ»Ð¾Ñ‰Ð°Ð´ÑŒ (Ñ‡ÐµÑ€ÐµÐ· Ð¼ÐµÑ‚Ð¾Ð´ Ñ Ð´Ð²ÑƒÐ¼Ñ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð°Ð¼Ð¸): %.2f\n", 
+                System.out.printf("Ïëîùàäü (÷åðåç ìåòîä ñ äâóìÿ ïàðàìåòðàìè): %.2f\n", 
                                 userSquare.rect_area(side, side));
             }
         }
         
-        System.out.println("\n=== Ð”ÐžÐŸÐžÐ›ÐÐ˜Ð¢Ð•Ð›Ð¬ÐÐ«Ð• ÐŸÐ Ð˜ÐœÐ•Ð Ð« ===");
+        System.out.println("\n=== ÄÎÏÎËÍÈÒÅËÜÍÛÅ ÏÐÈÌÅÐÛ ===");
         
         Rectangle multiPurpose = new Rectangle();
         
-        System.out.println("ÐžÐ´Ð¸Ð½ Ð¾Ð±ÑŠÐµÐºÑ‚, Ñ€Ð°Ð·Ð½Ñ‹Ðµ Ð²Ñ‹Ð·Ð¾Ð²Ñ‹:");
+        System.out.println("Îäèí îáúåêò, ðàçíûå âûçîâû:");
         System.out.println("1. rect_area(7, 2) = " + multiPurpose.rect_area(7, 2));
         System.out.println("2. rect_area(6) = " + multiPurpose.rect_area(6));
         
         multiPurpose.setDimensions(8, 3);
-        System.out.println("3. ÐŸÐ¾ÑÐ»Ðµ setDimensions(8, 3):");
+        System.out.println("3. Ïîñëå setDimensions(8, 3):");
         System.out.println("   rect_area() = " + multiPurpose.rect_area());
         
         multiPurpose.setSquareSide(5);
-        System.out.println("4. ÐŸÐ¾ÑÐ»Ðµ setSquareSide(5):");
+        System.out.println("4. Ïîñëå setSquareSide(5):");
         System.out.println("   rect_area() = " + multiPurpose.rect_area());
-        System.out.println("   Ð­Ñ‚Ð¾ ÐºÐ²Ð°Ð´Ñ€Ð°Ñ‚? " + multiPurpose.isSquare());
+        System.out.println("   Ýòî êâàäðàò? " + multiPurpose.isSquare());
         
         scanner.close();
     }

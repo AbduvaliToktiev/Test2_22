@@ -15,7 +15,7 @@ class Int {
     
     public Int(long value) {
         if (value > Integer.MAX_VALUE || value < Integer.MIN_VALUE) {
-            throw new ArithmeticException("ÐŸÐµÑ€ÐµÐ¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ Ð¿Ñ€Ð¸ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ð¸ Int!");
+            throw new ArithmeticException("Ïåðåïîëíåíèå ïðè ñîçäàíèè Int!");
         }
         this.value = (int) value;
     }
@@ -67,14 +67,14 @@ class Int {
     
     public Int divide(Int other) {
         if (other.value == 0) {
-            throw new ArithmeticException("Ð”ÐµÐ»ÐµÐ½Ð¸Ðµ Ð½Ð° Ð½Ð¾Ð»ÑŒ!");
+            throw new ArithmeticException("Äåëåíèå íà íîëü!");
         }
         return new Int(this.value / other.value);
     }
     
     public Int divide(int num) {
         if (num == 0) {
-            throw new ArithmeticException("Ð”ÐµÐ»ÐµÐ½Ð¸Ðµ Ð½Ð° Ð½Ð¾Ð»ÑŒ!");
+            throw new ArithmeticException("Äåëåíèå íà íîëü!");
         }
         return new Int(this.value / num);
     }
@@ -111,8 +111,8 @@ class Int {
     
     private void checkOverflow(long result) {
         if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
-            throw new ArithmeticException("ÐÑ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ¾Ðµ Ð¿ÐµÑ€ÐµÐ¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ! Ð ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚: " + result + 
-                                        " Ð²Ñ‹Ñ…Ð¾Ð´Ð¸Ñ‚ Ð·Ð° Ð¿Ñ€ÐµÐ´ÐµÐ»Ñ‹ int [" + Integer.MIN_VALUE + 
+            throw new ArithmeticException("Àðèôìåòè÷åñêîå ïåðåïîëíåíèå! Ðåçóëüòàò: " + result + 
+                                        " âûõîäèò çà ïðåäåëû int [" + Integer.MIN_VALUE + 
                                         ", " + Integer.MAX_VALUE + "]");
         }
     }
@@ -143,7 +143,7 @@ class Int {
     }
     
     public static void demoOperations() {
-        System.out.println("\n=== Ð”Ð•ÐœÐžÐÐ¡Ð¢Ð ÐÐ¦Ð˜Ð¯ ÐšÐ›ÐÐ¡Ð¡Ð Int ===");
+        System.out.println("\n=== ÄÅÌÎÍÑÒÐÀÖÈß ÊËÀÑÑÀ Int ===");
         
         try {
             Int a = new Int(1000);
@@ -163,15 +163,15 @@ class Int {
             Int quotient = a.divide(new Int(2));
             System.out.println("a / 2 = " + quotient);
             
-            System.out.println("\nÐ˜Ð½ÐºÑ€ÐµÐ¼ÐµÐ½Ñ‚:");
-            System.out.println("Ð˜ÑÑ…Ð¾Ð´Ð½Ð¾Ðµ a = " + a);
+            System.out.println("\nÈíêðåìåíò:");
+            System.out.println("Èñõîäíîå a = " + a);
             Int prefixResult = a.prefixIncrement();
-            System.out.println("++a = " + prefixResult + " (Ñ‚ÐµÐ¿ÐµÑ€ÑŒ a = " + a + ")");
+            System.out.println("++a = " + prefixResult + " (òåïåðü a = " + a + ")");
             
             Int postfixResult = a.postfixIncrement();
-            System.out.println("a++ = " + postfixResult + " (Ñ‚ÐµÐ¿ÐµÑ€ÑŒ a = " + a + ")");
+            System.out.println("a++ = " + postfixResult + " (òåïåðü a = " + a + ")");
             
-            System.out.println("\nÐ¢ÐµÑÑ‚ Ð¿ÐµÑ€ÐµÐ¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ:");
+            System.out.println("\nÒåñò ïåðåïîëíåíèÿ:");
             Int maxInt = new Int(Integer.MAX_VALUE);
             System.out.println("MAX_INT = " + maxInt);
             
@@ -179,7 +179,7 @@ class Int {
                 Int overflow = maxInt.add(1);
                 System.out.println("MAX_INT + 1 = " + overflow);
             } catch (ArithmeticException e) {
-                System.out.println("ÐžÐ¨Ð˜Ð‘ÐšÐ: " + e.getMessage());
+                System.out.println("ÎØÈÁÊÀ: " + e.getMessage());
             }
             
             try {
@@ -187,10 +187,10 @@ class Int {
                 Int underflow = minInt.subtract(1);
                 System.out.println("MIN_INT - 1 = " + underflow);
             } catch (ArithmeticException e) {
-                System.out.println("ÐžÐ¨Ð˜Ð‘ÐšÐ: " + e.getMessage());
+                System.out.println("ÎØÈÁÊÀ: " + e.getMessage());
             }
             
-            System.out.println("\nÐžÐ¿ÐµÑ€Ð°Ñ†Ð¸Ð¸ Ñ Ð±Ð¾Ð»ÑŒÑˆÐ¸Ð¼Ð¸ Ñ‡Ð¸ÑÐ»Ð°Ð¼Ð¸:");
+            System.out.println("\nÎïåðàöèè ñ áîëüøèìè ÷èñëàìè:");
             Int big1 = new Int(2000000000);
             Int big2 = new Int(2000000000);
             
@@ -198,7 +198,7 @@ class Int {
                 Int bigSum = big1.add(big2);
                 System.out.println("2000000000 + 2000000000 = " + bigSum);
             } catch (ArithmeticException e) {
-                System.out.println("ÐžÐ¨Ð˜Ð‘ÐšÐ: " + e.getMessage());
+                System.out.println("ÎØÈÁÊÀ: " + e.getMessage());
             }
             
             Int big3 = new Int(100000);
@@ -206,7 +206,7 @@ class Int {
             System.out.println("2000000000 * 100000 = " + bigProduct);
             
         } catch (ArithmeticException e) {
-            System.out.println("ÐÑ€Ð¸Ñ„Ð¼ÐµÑ‚Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ð¾ÑˆÐ¸Ð±ÐºÐ°: " + e.getMessage());
+            System.out.println("Àðèôìåòè÷åñêàÿ îøèáêà: " + e.getMessage());
         }
     }
 }
@@ -215,26 +215,26 @@ public class IntDemo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        System.out.println("=== ÐšÐ›ÐÐ¡Ð¡ Int Ð¡ ÐŸÐ ÐžÐ’Ð•Ð ÐšÐžÐ™ ÐŸÐ•Ð Ð•ÐŸÐžÐ›ÐÐ•ÐÐ˜Ð¯ ===");
-        System.out.println("1. ÐÐ²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑÐºÐ°Ñ Ð´ÐµÐ¼Ð¾Ð½ÑÑ‚Ñ€Ð°Ñ†Ð¸Ñ");
-        System.out.println("2. Ð ÑƒÑ‡Ð½Ð¾Ð¹ Ð²Ð²Ð¾Ð´");
-        System.out.print("Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚: ");
+        System.out.println("=== ÊËÀÑÑ Int Ñ ÏÐÎÂÅÐÊÎÉ ÏÅÐÅÏÎËÍÅÍÈß ===");
+        System.out.println("1. Àâòîìàòè÷åñêàÿ äåìîíñòðàöèÿ");
+        System.out.println("2. Ðó÷íîé ââîä");
+        System.out.print("Âûáåðèòå âàðèàíò: ");
         
         int choice = scanner.nextInt();
         
         if (choice == 1) {
             Int.demoOperations();
         } else {
-            System.out.print("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¿ÐµÑ€Ð²Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾: ");
+            System.out.print("Ââåäèòå ïåðâîå ÷èñëî: ");
             int num1 = scanner.nextInt();
             
-            System.out.print("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ñ‚Ð¾Ñ€Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾: ");
+            System.out.print("Ââåäèòå âòîðîå ÷èñëî: ");
             int num2 = scanner.nextInt();
             
             Int a = new Int(num1);
             Int b = new Int(num2);
             
-            System.out.println("\nÐ ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ñ‹ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¹:");
+            System.out.println("\nÐåçóëüòàòû îïåðàöèé:");
             System.out.println("a = " + a + ", b = " + b);
             
             try {
@@ -245,15 +245,15 @@ public class IntDemo {
                 if (b.getValue() != 0) {
                     System.out.println("a / b = " + a.divide(b));
                 } else {
-                    System.out.println("a / b = Ð”ÐµÐ»ÐµÐ½Ð¸Ðµ Ð½Ð° Ð½Ð¾Ð»ÑŒ!");
+                    System.out.println("a / b = Äåëåíèå íà íîëü!");
                 }
                 
                 System.out.println("++a = " + a.prefixIncrement());
                 System.out.println("b++ = " + b.postfixIncrement());
-                System.out.println("ÐŸÐ¾ÑÐ»Ðµ b++: b = " + b);
+                System.out.println("Ïîñëå b++: b = " + b);
                 
             } catch (ArithmeticException e) {
-                System.out.println("ÐžÐ¨Ð˜Ð‘ÐšÐ: " + e.getMessage());
+                System.out.println("ÎØÈÁÊÀ: " + e.getMessage());
             }
         }
         

@@ -18,7 +18,7 @@ class Fraction {
     
     public Fraction(double numerator, double denominator) {
         if (denominator == 0) {
-            throw new IllegalArgumentException("Р—РЅР°РјРµРЅР°С‚РµР»СЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅСѓР»РµРј!");
+            throw new IllegalArgumentException("Знаменатель не может быть нулем!");
         }
         this.numerator = numerator;
         this.denominator = denominator;
@@ -32,7 +32,7 @@ class Fraction {
             this.denominator = Double.parseDouble(parts[1]);
             
             if (this.denominator == 0) {
-                throw new IllegalArgumentException("Р—РЅР°РјРµРЅР°С‚РµР»СЊ РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РЅСѓР»РµРј!");
+                throw new IllegalArgumentException("Знаменатель не может быть нулем!");
             }
         } else {
             this.numerator = Double.parseDouble(fractionStr);
@@ -99,7 +99,7 @@ class Fraction {
     
     public Fraction divide(Fraction other) {
         if (other.numerator == 0) {
-            throw new ArithmeticException("Р”РµР»РµРЅРёРµ РЅР° РЅРѕР»СЊ!");
+            throw new ArithmeticException("Деление на ноль!");
         }
         double newNumerator = this.numerator * other.denominator;
         double newDenominator = this.denominator * other.numerator;
@@ -178,10 +178,10 @@ public class FractionDemo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        System.out.println("=== РљР›РђРЎРЎ Fraction (Р”Р РћР‘Р¬) ===");
-        System.out.println("РџСЂРёРјРµСЂС‹ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ:\n");
+        System.out.println("=== КЛАСС Fraction (ДРОБЬ) ===");
+        System.out.println("Примеры использования:\n");
         
-        // РџСЂРёРјРµСЂ 1: 3/4 + 2/5
+        // Пример 1: 3/4 + 2/5
         Fraction f1 = new Fraction(3, 4);
         Fraction f2 = new Fraction(2, 5);
         
@@ -193,7 +193,7 @@ public class FractionDemo {
         System.out.print(" = ");
         Fraction sum1 = f1.add(f2);
         sum1.display();
-        System.out.println(" в‰€ " + sum1.toDecimalString());
+        System.out.println(" ? " + sum1.toDecimalString());
         
         Fraction f3 = new Fraction(1, 2);
         
@@ -203,7 +203,7 @@ public class FractionDemo {
         System.out.print(" + 4 = ");
         Fraction sum2 = f3.add(4);
         sum2.display();
-        System.out.println(" в‰€ " + sum2.toDecimalString());
+        System.out.println(" ? " + sum2.toDecimalString());
         
         Fraction f4 = new Fraction(5, 6);
         
@@ -213,70 +213,70 @@ public class FractionDemo {
         System.out.print(" = ");
         Fraction product = f4.multiply(2);
         product.display();
-        System.out.println(" в‰€ " + product.toDecimalString());
+        System.out.println(" ? " + product.toDecimalString());
         
         Fraction f5 = new Fraction(1, 3);
         
-        System.out.println("\n4. РРЅРєСЂРµРјРµРЅС‚ РґСЂРѕР±Рё 1/3:");
-        System.out.print("   РСЃС…РѕРґРЅР°СЏ: ");
+        System.out.println("\n4. Инкремент дроби 1/3:");
+        System.out.print("   Исходная: ");
         f5.display();
         
         Fraction incPref = f5.prefixIncrement();
         System.out.print("\n   ++(1/3) = ");
         incPref.display();
-        System.out.println(" (С‚РµРїРµСЂСЊ f5 = " + f5 + ")");
+        System.out.println(" (теперь f5 = " + f5 + ")");
         
         Fraction incPost = f5.postfixIncrement();
         System.out.print("   (1/3)++ = ");
         incPost.display();
-        System.out.println(" (С‚РµРїРµСЂСЊ f5 = " + f5 + ")");
+        System.out.println(" (теперь f5 = " + f5 + ")");
         
-        System.out.println("\n5. РљРѕРјРїР»РµРєСЃРЅРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ: (1/2 + 1/3) * (2 - 1/4)");
+        System.out.println("\n5. Комплексное выражение: (1/2 + 1/3) * (2 - 1/4)");
         Fraction a = new Fraction(1, 2);
         Fraction b = new Fraction(1, 3);
         Fraction c = new Fraction(2);
         Fraction d = new Fraction(1, 4);
         
         Fraction result = a.add(b).multiply(c.subtract(d));
-        System.out.print("   Р РµР·СѓР»СЊС‚Р°С‚: ");
+        System.out.print("   Результат: ");
         result.display();
-        System.out.println(" в‰€ " + result.toDecimalString());
+        System.out.println(" ? " + result.toDecimalString());
         
-        System.out.println("\n=== Р РЈР§РќРћР™ Р’Р’РћР” ===");
-        System.out.print("Р’РІРµРґРёС‚Рµ РїРµСЂРІСѓСЋ РґСЂРѕР±СЊ (С„РѕСЂРјР°С‚: a/b РёР»Рё С‡РёСЃР»Рѕ): ");
+        System.out.println("\n=== РУЧНОЙ ВВОД ===");
+        System.out.print("Введите первую дробь (формат: a/b или число): ");
         String input1 = scanner.next();
         
-        System.out.print("Р’РІРµРґРёС‚Рµ РІС‚РѕСЂСѓСЋ РґСЂРѕР±СЊ (С„РѕСЂРјР°С‚: a/b РёР»Рё С‡РёСЃР»Рѕ): ");
+        System.out.print("Введите вторую дробь (формат: a/b или число): ");
         String input2 = scanner.next();
         
         try {
             Fraction userF1 = new Fraction(input1);
             Fraction userF2 = new Fraction(input2);
             
-            System.out.println("\nР’Р°С€Рё РґСЂРѕР±Рё:");
-            System.out.println("f1 = " + userF1 + " в‰€ " + userF1.toDecimalString());
-            System.out.println("f2 = " + userF2 + " в‰€ " + userF2.toDecimalString());
+            System.out.println("\nВаши дроби:");
+            System.out.println("f1 = " + userF1 + " ? " + userF1.toDecimalString());
+            System.out.println("f2 = " + userF2 + " ? " + userF2.toDecimalString());
             
-            System.out.println("\nР РµР·СѓР»СЊС‚Р°С‚С‹ РѕРїРµСЂР°С†РёР№:");
+            System.out.println("\nРезультаты операций:");
             System.out.println("f1 + f2 = " + userF1.add(userF2) + 
-                             " в‰€ " + userF1.add(userF2).toDecimalString());
+                             " ? " + userF1.add(userF2).toDecimalString());
             System.out.println("f1 - f2 = " + userF1.subtract(userF2) + 
-                             " в‰€ " + userF1.subtract(userF2).toDecimalString());
+                             " ? " + userF1.subtract(userF2).toDecimalString());
             System.out.println("f1 * f2 = " + userF1.multiply(userF2) + 
-                             " в‰€ " + userF1.multiply(userF2).toDecimalString());
+                             " ? " + userF1.multiply(userF2).toDecimalString());
             
             if (userF2.getValue() != 0) {
                 System.out.println("f1 / f2 = " + userF1.divide(userF2) + 
-                                 " в‰€ " + userF1.divide(userF2).toDecimalString());
+                                 " ? " + userF1.divide(userF2).toDecimalString());
             } else {
-                System.out.println("f1 / f2 = Р”РµР»РµРЅРёРµ РЅР° РЅРѕР»СЊ!");
+                System.out.println("f1 / f2 = Деление на ноль!");
             }
             
             System.out.println("++f1 = " + userF1.prefixIncrement() + 
-                             " (С‚РµРїРµСЂСЊ f1 = " + userF1 + ")");
+                             " (теперь f1 = " + userF1 + ")");
             
         } catch (Exception e) {
-            System.out.println("РћС€РёР±РєР°: " + e.getMessage());
+            System.out.println("Ошибка: " + e.getMessage());
         }
         
         scanner.close();
