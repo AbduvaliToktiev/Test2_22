@@ -11,8 +11,8 @@ class Soft {
     private LocalDate licenseExpiryDate;
     
     public Soft() {
-        this.programName = "РќРµ СѓРєР°Р·Р°РЅРѕ";
-        this.developer = "РќРµ СѓРєР°Р·Р°РЅ";
+        this.programName = "Не указано";
+        this.developer = "Не указан";
         this.diskSpace = 0.0;
         this.licenseExpiryDate = LocalDate.now().plusYears(1);
     }
@@ -37,34 +37,34 @@ class Soft {
     }
     
     public void displaySoftwareInfo() {
-        System.out.println("\nв•”в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•—");
-        System.out.println("в•‘        РРќР¤РћР РњРђР¦РРЇ Рћ РџР РћР“Р РђРњРњР•            в•‘");
-        System.out.println("в• в•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•Ј");
-        System.out.println("в•‘ РќР°Р·РІР°РЅРёРµ: " + String.format("%-30s", programName) + "в•‘");
-        System.out.println("в•‘ Р Р°Р·СЂР°Р±РѕС‚С‡РёРє: " + String.format("%-27s", developer) + "в•‘");
-        System.out.printf("в•‘ Р—Р°РЅРёРјР°РµРјС‹Р№ РѕР±СЉРµРј: %-7.1f РњР‘ %17sв•‘\n", diskSpace, "");
-        System.out.println("в•‘ Р”Р°С‚Р° РѕРєРѕРЅС‡Р°РЅРёСЏ Р»РёС†РµРЅР·РёРё: " + 
-                         String.format("%-17s", licenseExpiryDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))) + "в•‘");
+        System.out.println("\n?????????????????????????????????????????????");
+        System.out.println("?        ИНФОРМАЦИЯ О ПРОГРАММЕ            ?");
+        System.out.println("?????????????????????????????????????????????");
+        System.out.println("? Название: " + String.format("%-30s", programName) + "?");
+        System.out.println("? Разработчик: " + String.format("%-27s", developer) + "?");
+        System.out.printf("? Занимаемый объем: %-7.1f МБ %17s?\n", diskSpace, "");
+        System.out.println("? Дата окончания лицензии: " + 
+                         String.format("%-17s", licenseExpiryDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"))) + "?");
         
         long daysLeft = daysUntilLicenseExpiry();
         if (daysLeft > 0) {
-            System.out.printf("в•‘ РћСЃС‚Р°Р»РѕСЃСЊ РґРЅРµР№ Р»РёС†РµРЅР·РёРё: %-17dв•‘\n", daysLeft);
+            System.out.printf("? Осталось дней лицензии: %-17d?\n", daysLeft);
         } else if (daysLeft == 0) {
-            System.out.println("в•‘ вљ   Р›РёС†РµРЅР·РёСЏ РёСЃС‚РµРєР°РµС‚ РЎР•Р“РћР”РќРЇ!          в•‘");
+            System.out.println("? ?  Лицензия истекает СЕГОДНЯ!          ?");
         } else {
-            System.out.println("в•‘ вќЊ  Р›РёС†РµРЅР·РёСЏ РџР РћРЎР РћР§Р•РќРђ!              в•‘");
+            System.out.println("? ?  Лицензия ПРОСРОЧЕНА!              ?");
         }
-        System.out.println("в•љв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ђв•ќ");
+        System.out.println("?????????????????????????????????????????????");
     }
     
     public String getLicenseStatus() {
         long daysLeft = daysUntilLicenseExpiry();
         if (daysLeft > 30) {
-            return "РђРљРўРР’РќРђ";
+            return "АКТИВНА";
         } else if (daysLeft > 0) {
-            return "РРЎРўР•РљРђР•Рў";
+            return "ИСТЕКАЕТ";
         } else {
-            return "РџР РћРЎР РћР§Р•РќРђ";
+            return "ПРОСРОЧЕНА";
         }
     }
     
@@ -107,7 +107,7 @@ class Soft {
     @Override
     protected void finalize() throws Throwable {
         try {
-            System.out.println("РџСЂРѕРіСЂР°РјРјР° '" + programName + "' СѓРґР°Р»РµРЅР° РёР· СЃРёСЃС‚РµРјС‹");
+            System.out.println("Программа '" + programName + "' удалена из системы");
         } finally {
             super.finalize();
         }
@@ -116,10 +116,10 @@ class Soft {
 
 public class SoftwareManager {
     public static void main(String[] args) {
-        System.out.println("=== РњР•РќР•Р”Р–Р•Р  РџР РћР“Р РђРњРњРќРћР“Рћ РћР‘Р•РЎРџР•Р§Р•РќРРЇ ===\n");
+        System.out.println("=== МЕНЕДЖЕР ПРОГРАММНОГО ОБЕСПЕЧЕНИЯ ===\n");
         
-        // РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚РѕРІ РџРћ СЂР°Р·РЅС‹РјРё РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°РјРё
-        System.out.println("1. РЈСЃС‚Р°РЅРѕРІРєР° РїСЂРѕРіСЂР°РјРјРЅРѕРіРѕ РѕР±РµСЃРїРµС‡РµРЅРёСЏ:");
+        // Создание объектов ПО разными конструкторами
+        System.out.println("1. Установка программного обеспечения:");
         
         Soft program1 = new Soft();
         program1.setProgramName("Microsoft Office");
@@ -133,15 +133,15 @@ public class SoftwareManager {
                                 LocalDate.now().plusDays(15));
         
         Soft program4 = new Soft("Windows 11", "Microsoft", 20000.0, 
-                                LocalDate.now().minusDays(30)); // РџСЂРѕСЃСЂРѕС‡РµРЅРЅР°СЏ
+                                LocalDate.now().minusDays(30)); // Просроченная
         
-        System.out.println("\n2. РРЅС„РѕСЂРјР°С†РёСЏ РѕР± СѓСЃС‚Р°РЅРѕРІР»РµРЅРЅРѕРј РџРћ:");
+        System.out.println("\n2. Информация об установленном ПО:");
         program1.displaySoftwareInfo();
         program2.displaySoftwareInfo();
         program3.displaySoftwareInfo();
         program4.displaySoftwareInfo();
         
-        System.out.println("\n3. РђРЅР°Р»РёР· СЃРѕСЃС‚РѕСЏРЅРёСЏ Р»РёС†РµРЅР·РёР№:");
+        System.out.println("\n3. Анализ состояния лицензий:");
         System.out.println("================================");
         Soft[] programs = {program1, program2, program3, program4};
         
@@ -149,19 +149,19 @@ public class SoftwareManager {
             long daysLeft = program.daysUntilLicenseExpiry();
             String status = program.getLicenseStatus();
             
-            System.out.printf("%-20s: %-12s (РґРЅРµР№: %+d)\n", 
+            System.out.printf("%-20s: %-12s (дней: %+d)\n", 
                 program.getProgramName(), status, daysLeft);
         }
         
-        System.out.println("\n4. РЎС‚Р°С‚РёСЃС‚РёРєР°:");
+        System.out.println("\n4. Статистика:");
         double totalSpace = 0;
         for (Soft program : programs) {
             totalSpace += program.getDiskSpace();
         }
-        System.out.printf("РћР±С‰РёР№ Р·Р°РЅРёРјР°РµРјС‹Р№ РѕР±СЉРµРј: %.1f РњР‘ (%.2f Р“Р‘)\n", 
+        System.out.printf("Общий занимаемый объем: %.1f МБ (%.2f ГБ)\n", 
                          totalSpace, totalSpace / 1024);
         
-        System.out.println("\n5. РћС‡РёСЃС‚РєР° РґР°РЅРЅС‹С…:");
+        System.out.println("\n5. Очистка данных:");
         program1 = null;
         program2 = null;
         program3 = null;
@@ -174,6 +174,6 @@ public class SoftwareManager {
             e.printStackTrace();
         }
         
-        System.out.println("\nР Р°Р±РѕС‚Р° РїСЂРѕРіСЂР°РјРјС‹ Р·Р°РІРµСЂС€РµРЅР°!");
+        System.out.println("\nРабота программы завершена!");
     }
 }

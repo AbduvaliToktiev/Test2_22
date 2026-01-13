@@ -7,7 +7,7 @@ class Timer {
     public Timer(int seconds) {
         this.totalSeconds = seconds;
         this.initialSeconds = seconds;
-        System.out.println("РўР°Р№РјРµСЂ СЃРѕР·РґР°РЅ: " + seconds + " СЃРµРєСѓРЅРґ");
+        System.out.println("Таймер создан: " + seconds + " секунд");
     }
 
     public Timer(String timeStr) {
@@ -20,23 +20,23 @@ class Timer {
             this.totalSeconds = Integer.parseInt(timeStr);
         }
         this.initialSeconds = this.totalSeconds;
-        System.out.println("РўР°Р№РјРµСЂ СЃРѕР·РґР°РЅ РёР· СЃС‚СЂРѕРєРё: " + timeStr + " = " + this.totalSeconds + " СЃРµРєСѓРЅРґ");
+        System.out.println("Таймер создан из строки: " + timeStr + " = " + this.totalSeconds + " секунд");
     }
 
     public Timer(int minutes, int seconds) {
         this.totalSeconds = minutes * 60 + seconds;
         this.initialSeconds = this.totalSeconds;
-        System.out.println("РўР°Р№РјРµСЂ СЃРѕР·РґР°РЅ: " + minutes + " РјРёРЅСѓС‚ " + seconds + " СЃРµРєСѓРЅРґ = " + this.totalSeconds + " СЃРµРєСѓРЅРґ");
+        System.out.println("Таймер создан: " + minutes + " минут " + seconds + " секунд = " + this.totalSeconds + " секунд");
     }
 
     public void run() {
-        System.out.println("\nРўР°Р№РјРµСЂ Р·Р°РїСѓС‰РµРЅ! РћР±СЂР°С‚РЅС‹Р№ РѕС‚СЃС‡РµС‚ " + initialSeconds + " СЃРµРєСѓРЅРґ...");
+        System.out.println("\nТаймер запущен! Обратный отсчет " + initialSeconds + " секунд...");
 
         long startTime = System.currentTimeMillis();
 
         while (totalSeconds > 0) {
             try {
-                Thread.sleep(1000); // Р—Р°РґРµСЂР¶РєР° 1 СЃРµРєСѓРЅРґР°
+                Thread.sleep(1000); // Задержка 1 секунда
 
                 long currentTime = System.currentTimeMillis();
                 long elapsedSeconds = (currentTime - startTime) / 1000;
@@ -47,25 +47,25 @@ class Timer {
                     displayTime();
                 }
             } catch (InterruptedException e) {
-                System.out.println("РўР°Р№РјРµСЂ РїСЂРµСЂРІР°РЅ!");
+                System.out.println("Таймер прерван!");
                 return;
             }
         }
 
-        System.out.println("\nвЏ° Р‘РРџ-Р‘РРџ-Р‘РРџ! РўР°Р№РјРµСЂ Р·Р°РІРµСЂС€РµРЅ!");
+        System.out.println("\n? БИП-БИП-БИП! Таймер завершен!");
         ringBell();
     }
 
     private void displayTime() {
         int minutes = totalSeconds / 60;
         int seconds = totalSeconds % 60;
-        System.out.printf("РћСЃС‚Р°Р»РѕСЃСЊ: %02d:%02d\n", minutes, seconds);
+        System.out.printf("Осталось: %02d:%02d\n", minutes, seconds);
     }
 
     private void ringBell() {
-        System.out.println("рџ”” Р—Р’РћРќРћРљ! Р’СЂРµРјСЏ РІС‹С€Р»Рѕ!");
+        System.out.println("? ЗВОНОК! Время вышло!");
         for (int i = 0; i < 3; i++) {
-            System.out.print("Р‘РРџ! ");
+            System.out.print("БИП! ");
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {
@@ -82,7 +82,7 @@ class Timer {
     @Override
     protected void finalize() throws Throwable {
         try {
-            System.out.println("РўР°Р№РјРµСЂ " + initialSeconds + " СЃРµРєСѓРЅРґ СѓРґР°Р»СЏРµС‚СЃСЏ...");
+            System.out.println("Таймер " + initialSeconds + " секунд удаляется...");
         } finally {
             super.finalize();
         }
@@ -91,22 +91,22 @@ class Timer {
 
 public class TimerDemo {
     public static void main(String[] args) {
-        System.out.println("=== Р”Р•РњРћРќРЎРўР РђР¦РРЇ РўРђР™РњР•Р Рђ ===");
+        System.out.println("=== ДЕМОНСТРАЦИЯ ТАЙМЕРА ===");
 
-        System.out.println("\n1. РЎРѕР·РґР°РЅРёРµ С‚Р°Р№РјРµСЂР° РёР· С†РµР»РѕРіРѕ С‡РёСЃР»Р° (120 СЃРµРєСѓРЅРґ):");
+        System.out.println("\n1. Создание таймера из целого числа (120 секунд):");
         Timer timer1 = new Timer(120);
 
-        System.out.println("\n2. РЎРѕР·РґР°РЅРёРµ С‚Р°Р№РјРµСЂР° РёР· СЃС‚СЂРѕРєРё (\"2:30\"):");
+        System.out.println("\n2. Создание таймера из строки (\"2:30\"):");
         Timer timer2 = new Timer("2:30");
 
-        System.out.println("\n3. РЎРѕР·РґР°РЅРёРµ С‚Р°Р№РјРµСЂР° РёР· РґРІСѓС… С†РµР»С‹С… С‡РёСЃРµР» (1 РјРёРЅ 45 СЃРµРє):");
+        System.out.println("\n3. Создание таймера из двух целых чисел (1 мин 45 сек):");
         Timer timer3 = new Timer(1, 45);
 
-        System.out.println("\n--- Р—Р°РїСѓСЃРє С‚Р°Р№РјРµСЂР° РЅР° 5 СЃРµРєСѓРЅРґ ---");
+        System.out.println("\n--- Запуск таймера на 5 секунд ---");
         Timer shortTimer = new Timer(5);
         shortTimer.run();
 
-        System.out.println("\n--- Р”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ РѕС‡РёСЃС‚РєРё ---");
+        System.out.println("\n--- Демонстрация очистки ---");
         timer1 = null;
         timer2 = null;
         timer3 = null;
@@ -114,11 +114,11 @@ public class TimerDemo {
 
         System.gc();
         try {
-            Thread.sleep(1000); // Р”Р°РµРј РІСЂРµРјСЏ РЅР° РІС‹РїРѕР»РЅРµРЅРёРµ finalize
+            Thread.sleep(1000); // Даем время на выполнение finalize
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        System.out.println("\nР”РµРјРѕРЅСЃС‚СЂР°С†РёСЏ Р·Р°РІРµСЂС€РµРЅР°!");
+        System.out.println("\nДемонстрация завершена!");
     }
 }

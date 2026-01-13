@@ -3,15 +3,15 @@ package politeh.thirdcourse.second;
 class Nomenclature {
     private String productName;
     private double wholesalePrice;
-    private double retailMarkup; // РІ РїСЂРѕС†РµРЅС‚Р°С…
+    private double retailMarkup; // в процентах
     private int quantityInStock;
     
     public Nomenclature() {
-        this.productName = "РќРµ СѓРєР°Р·Р°РЅРѕ";
+        this.productName = "Не указано";
         this.wholesalePrice = 0.0;
         this.retailMarkup = 0.0;
         this.quantityInStock = 0;
-        System.out.println("РЎРѕР·РґР°РЅ С‚РѕРІР°СЂ (РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ)");
+        System.out.println("Создан товар (конструктор по умолчанию)");
     }
     
     public Nomenclature(String name, double wholesale, double markup, int quantity) {
@@ -19,7 +19,7 @@ class Nomenclature {
         this.wholesalePrice = wholesale;
         this.retailMarkup = markup;
         this.quantityInStock = quantity;
-        System.out.println("РЎРѕР·РґР°РЅ С‚РѕРІР°СЂ: " + name);
+        System.out.println("Создан товар: " + name);
     }
     
     public Nomenclature(Nomenclature other) {
@@ -27,7 +27,7 @@ class Nomenclature {
         this.wholesalePrice = other.wholesalePrice;
         this.retailMarkup = other.retailMarkup;
         this.quantityInStock = other.quantityInStock;
-        System.out.println("РЎРѕР·РґР°РЅР° РєРѕРїРёСЏ С‚РѕРІР°СЂР°: " + other.productName);
+        System.out.println("Создана копия товара: " + other.productName);
     }
     
     public double calculateNetIncome() {
@@ -37,15 +37,15 @@ class Nomenclature {
     }
     
     public void displayProductInfo() {
-        System.out.println("\n=== РРќР¤РћР РњРђР¦РРЇ Рћ РўРћР’РђР Р• ===");
-        System.out.println("РќР°Р·РІР°РЅРёРµ: " + productName);
-        System.out.printf("РћРїС‚РѕРІР°СЏ С†РµРЅР°: %.2f СЂСѓР±.\n", wholesalePrice);
-        System.out.printf("Р РѕР·РЅРёС‡РЅР°СЏ РЅР°С†РµРЅРєР°: %.1f%%\n", retailMarkup);
-        System.out.println("РљРѕР»РёС‡РµСЃС‚РІРѕ РЅР° СЃРєР»Р°РґРµ: " + quantityInStock + " С€С‚.");
+        System.out.println("\n=== ИНФОРМАЦИЯ О ТОВАРЕ ===");
+        System.out.println("Название: " + productName);
+        System.out.printf("Оптовая цена: %.2f руб.\n", wholesalePrice);
+        System.out.printf("Розничная наценка: %.1f%%\n", retailMarkup);
+        System.out.println("Количество на складе: " + quantityInStock + " шт.");
         
         double retailPrice = wholesalePrice * (1 + retailMarkup / 100);
-        System.out.printf("Р РѕР·РЅРёС‡РЅР°СЏ С†РµРЅР°: %.2f СЂСѓР±.\n", retailPrice);
-        System.out.printf("Р’РѕР·РјРѕР¶РЅС‹Р№ С‡РёСЃС‚С‹Р№ РґРѕС…РѕРґ: %.2f СЂСѓР±.\n", calculateNetIncome());
+        System.out.printf("Розничная цена: %.2f руб.\n", retailPrice);
+        System.out.printf("Возможный чистый доход: %.2f руб.\n", calculateNetIncome());
         System.out.println("===========================\n");
     }
     
@@ -84,7 +84,7 @@ class Nomenclature {
     @Override
     protected void finalize() throws Throwable {
         try {
-            System.out.println("РўРѕРІР°СЂ '" + productName + "' СѓРґР°Р»РµРЅ СЃРѕ СЃРєР»Р°РґР°");
+            System.out.println("Товар '" + productName + "' удален со склада");
         } finally {
             super.finalize();
         }
@@ -93,34 +93,34 @@ class Nomenclature {
 
 public class NomenclatureDemo {
     public static void main(String[] args) {
-        System.out.println("=== РЈРџР РђР’Р›Р•РќРР• РЎРљР›РђР”РћРњ РўРћР’РђР РћР’ ===\n");
+        System.out.println("=== УПРАВЛЕНИЕ СКЛАДОМ ТОВАРОВ ===\n");
         
-        System.out.println("1. РЎРѕР·РґР°РЅРёРµ С‚РѕРІР°СЂРѕРІ СЂР°Р·РЅС‹РјРё РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°РјРё:");
+        System.out.println("1. Создание товаров разными конструкторами:");
         
         Nomenclature product1 = new Nomenclature();
-        product1.setProductName("РњРѕР»РѕРєРѕ");
+        product1.setProductName("Молоко");
         product1.setWholesalePrice(50.0);
         product1.setRetailMarkup(20.0);
         product1.setQuantityInStock(100);
         
-        Nomenclature product2 = new Nomenclature("РҐР»РµР±", 30.0, 25.0, 200);
+        Nomenclature product2 = new Nomenclature("Хлеб", 30.0, 25.0, 200);
         
         Nomenclature product3 = new Nomenclature(product2);
-        product3.setProductName("РҐР»РµР± СЂР¶Р°РЅРѕР№");
+        product3.setProductName("Хлеб ржаной");
         product3.setRetailMarkup(30.0);
         
-        System.out.println("\n2. РРЅС„РѕСЂРјР°С†РёСЏ Рѕ С‚РѕРІР°СЂР°С…:");
+        System.out.println("\n2. Информация о товарах:");
         product1.displayProductInfo();
         product2.displayProductInfo();
         product3.displayProductInfo();
         
-        System.out.println("3. Р Р°СЃС‡РµС‚ РѕР±С‰РµРіРѕ РґРѕС…РѕРґР° СЃРѕ СЃРєР»Р°РґР°:");
+        System.out.println("3. Расчет общего дохода со склада:");
         double totalIncome = product1.calculateNetIncome() + 
                             product2.calculateNetIncome() + 
                             product3.calculateNetIncome();
-        System.out.printf("РћР±С‰РёР№ РІРѕР·РјРѕР¶РЅС‹Р№ РґРѕС…РѕРґ: %.2f СЂСѓР±.\n", totalIncome);
+        System.out.printf("Общий возможный доход: %.2f руб.\n", totalIncome);
         
-        System.out.println("\n4. РћС‡РёСЃС‚РєР° РѕР±СЉРµРєС‚РѕРІ:");
+        System.out.println("\n4. Очистка объектов:");
         product1 = null;
         product2 = null;
         product3 = null;
@@ -132,6 +132,6 @@ public class NomenclatureDemo {
             e.printStackTrace();
         }
         
-        System.out.println("\nРџСЂРѕРіСЂР°РјРјР° Р·Р°РІРµСЂС€РµРЅР°!");
+        System.out.println("\nПрограмма завершена!");
     }
 }
